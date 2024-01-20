@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Fish Tank
+  - Pirates
+  - Mermaids
+  - Pirate
+  - Mermaid
+  - My Collection
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Blur_2
+    uniqueID: 2640889535
+    locked: 0
+  - name: Static Blur_1
+    uniqueID: 2305412087
+    locked: 0
+  - name: Blur_1
+    uniqueID: 1179629671
+    locked: 0
+  - name: Non-Blur
+    uniqueID: 3756012319
+    locked: 0
+  - name: Foreground
+    uniqueID: 2135718029
+    locked: 0
+  - name: Mermaid
+    uniqueID: 1425387481
+    locked: 0

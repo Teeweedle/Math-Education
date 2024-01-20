@@ -1,0 +1,17 @@
+Coral_01=1000
+Coral_02=2
+Coral_04=3
+Jellyfish=440
+Unicorn_01=1
+Butterfly=2
+Castle=3
+Clam=4500
+Dolphin=1
+Mermaid=2000
+Narwhal=3
+Pirate=4
+Shipwreck=1
+Skull=2
+Spongebob_House=3
+Submarine=4
+Treasure=1

@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: e1041ed3f09bd5843a4921b48cae1792
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - fProfileInput: {fileID: 3850018962348623951, guid: 3f2f7eb7dc2697c45892ad4664b20e33, type: 3}
+  - fCanvas: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
