@@ -17,6 +17,9 @@ public class MatchingGame : MonoBehaviour
     public delegate void EndGame(string aTextOutput, string aMathProblem, int aScore, int aAnswer);
     public static event EndGame _endGame;
 
+    public delegate void PlaySound(string aSoundName);
+    public static event PlaySound _onPlaySound;
+
     private void OnEnable()
     {
         PlayAgainButton._playAgain += PlayAgain;
@@ -43,6 +46,7 @@ public class MatchingGame : MonoBehaviour
     {
         if (_cardValues[0] == _cardValues[1])
         {
+            _onPlaySound?.Invoke("CorrectAnswer_SE");
             foreach (GameObject aCard in _cardObjects)
             {                
                 Destroy(aCard, 0.1f);
@@ -51,6 +55,7 @@ public class MatchingGame : MonoBehaviour
         }
         else
         {
+            _onPlaySound?.Invoke("WrongAnswer_SE");
             foreach (GameObject aCard in _cardObjects)
             {
                 StartCoroutine(aCard.GetComponent<CardBehaviour>().RotateCardFaceDown());

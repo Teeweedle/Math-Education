@@ -11,12 +11,16 @@ public class SoundLibrary : MonoBehaviour
     private void OnEnable()
     {
         FallingPrefab._onPlaySound += PlaySound;
+        MathProblem._onPlaySound += PlaySound;
+        MatchingGame._onPlaySound += PlaySound;
     }
     private void Start()
     {
         LoadSoundResources();
     }
-
+    /// <summary>
+    /// Loads all sound effects into a dictionary.
+    /// </summary>
     private void LoadSoundResources()
     {
         AudioClip[] lSoundEffects = Resources.LoadAll<AudioClip>("Audio Sources/Sound Effects");
@@ -25,7 +29,10 @@ public class SoundLibrary : MonoBehaviour
             _audioLibrary.Add(lSoundEffect.name, lSoundEffect);
         }
     }
-
+    /// <summary>
+    /// Checks the sound library for the name passed and if found plays it.
+    /// </summary>
+    /// <param name="aSoundName"></param>
     private void PlaySound(string aSoundName)
     {
         AudioClip lSound;
@@ -37,5 +44,7 @@ public class SoundLibrary : MonoBehaviour
     private void OnDisable()
     {
         FallingPrefab._onPlaySound -= PlaySound;
+        MathProblem._onPlaySound -= PlaySound;
+        MatchingGame._onPlaySound -= PlaySound;
     }
 }

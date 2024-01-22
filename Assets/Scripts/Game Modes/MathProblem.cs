@@ -23,6 +23,9 @@ public class MathProblem : MonoBehaviour
     public delegate void EndGame(string aTextOutput, string aMathProblem, int aScore, int aAnswer);
     public static event EndGame _endGame;
 
+    public delegate void PlaySound(string aSoundName);
+    public static event PlaySound _onPlaySound;
+
     //checks math array and creates a problem based off given answers
     public virtual void CreateMathProblem(int[] aMathArray, string aGameMode)
     {        
@@ -53,6 +56,7 @@ public class MathProblem : MonoBehaviour
         bool lBool = true;
         if (IsCorrect(aValueHeld))
         {
+            _onPlaySound?.Invoke("CorrectAnswer_SE");
             ShowPopUp("Correct!");
         }
         else if (!IsCorrect(aValueHeld) && GetNumberOfTries() > 0)

@@ -36,7 +36,13 @@ public class FallingPrefab : MonoBehaviour
             UpdateMathArray();
         }
     }
-    //copies values for prefab to "hold"
+    /// <summary>
+    /// Copies values for prefab to "hold"
+    /// </summary>
+    /// <param name="aColumn"></param>
+    /// <param name="aValueHeld"></param>
+    /// <param name="aMathProblem"></param>
+    /// <param name="aWrongAnswer"></param>
     public void SetValues(int aColumn, int aValueHeld, MathProblem aMathProblem, GameObject aWrongAnswer)
     {
         _column = aColumn;
@@ -50,8 +56,7 @@ public class FallingPrefab : MonoBehaviour
     private void OnMouseDown()
     {
         if (!_mathProblem.CheckGameState(_valueHeld))
-        {
-            //TODO: Add sound effect for wrong answer
+        {            
             _onPlaySound?.Invoke("WrongAnswer_SE");
             
             for (int i = 0; i < UnityEngine.Random.Range(2, 4); i++)
