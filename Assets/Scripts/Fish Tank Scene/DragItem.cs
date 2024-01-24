@@ -40,6 +40,8 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     {
         _onItemDrag?.Invoke(true);
         _itemPostion = transform.position;
+        //disable FishTankSwim
+        this.gameObject.GetComponent<FishTankSwim>().enabled = false;
         if (!this.gameObject.tag.Equals(_FISHTANK))
         {
             this.transform.SetParent(_myFishTank.transform);
@@ -60,6 +62,11 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         if (_isOverStorage)
         {
             AddToStorage();
+        }
+        else
+        {
+            //add back to fish tank and let swim (animate)
+            this.gameObject.GetComponent<FishTankSwim>().enabled = true;
         }
         transform.position = _itemPostion;
         _onItemDrag?.Invoke(false);

@@ -134,7 +134,7 @@ public class DisplayCollection : MonoBehaviour
     }
     /// <summary>
     /// Instantiates gameObjects based on their position in their repsective lists to fill fish tank
-    /// to their saved positions.
+    /// to their saved positions. Removes PreviewPurchase script.
     /// </summary>
     /// <param name="aNameList"></param>
     /// <param name="aPositionList"></param>
@@ -148,6 +148,8 @@ public class DisplayCollection : MonoBehaviour
                 Quaternion.identity, _myFishTank.transform);
             lTempObj.tag = _FISHTANK;
             Destroy(lTempObj.GetComponent<PreviewPurchase>());
+            //TODO: Enable Fish Tank Swim / Animation
+            //lTempObj.AddComponent<FishTankSwim>();
             lTempObj.AddComponent<DragItem>();
             lIndex++;
         }

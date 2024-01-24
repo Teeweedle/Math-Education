@@ -8,6 +8,7 @@ public class FishTankSwim : MonoBehaviour
     private Vector2 _size;
     private float _speed;
     private Vector3 _movePoint;
+    private Quaternion _targetRotation;
 
     private void OnEnable()
     {
@@ -28,12 +29,25 @@ public class FishTankSwim : MonoBehaviour
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, _movePoint, _speed);
-        //transform.position = Vector3.Lerp(transform.position, _movePoint, _speed / 300);
+        FaceDirection();
         if (IsInRange(_movePoint))
         {
             _movePoint = SetDirection();
         }
     }
+
+    private void FaceDirection()
+    {
+        if ((_movePoint - transform.position).x >= 0)
+        {
+            transform.right = Vector3.left;
+        }
+        else
+        {
+            transform.right = Vector3.right;
+        }
+    }
+
     /// <summary>
     /// Triggered when dragging item ends.
     /// </summary>
