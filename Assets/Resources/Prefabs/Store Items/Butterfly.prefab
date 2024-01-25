@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1025731857486624901}
   - component: {fileID: 1541778902922542262}
   - component: {fileID: -40686051637306751}
+  - component: {fileID: 179169760728039301}
+  - component: {fileID: 5395553151593401328}
   m_Layer: 0
   m_Name: Butterfly
   m_TagString: Untagged
@@ -136,3 +138,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &179169760728039301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647292297751361565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62c4f143d061dd4291a05f792ea6aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isStatic: 0
+--- !u!114 &5395553151593401328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8647292297751361565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ead0e91e1aa3ab4b95a755ade5c7619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

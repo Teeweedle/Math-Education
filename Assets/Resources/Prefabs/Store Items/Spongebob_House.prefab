@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6492648981916923072}
   - component: {fileID: 3095633768595519022}
   - component: {fileID: -5205990950827795853}
+  - component: {fileID: -1790938027640842000}
   m_Layer: 0
   m_Name: Spongebob_House
   m_TagString: Untagged
@@ -136,3 +137,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-1790938027640842000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7213772618457021680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62c4f143d061dd4291a05f792ea6aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isStatic: 1

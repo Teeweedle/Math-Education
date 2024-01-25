@@ -2,26 +2,19 @@ using UnityEngine;
 
 public class FishTankSwim : MonoBehaviour
 {
-    //[SerializeField] private Animator _animator;
-    //[SerializeField] private Rect _rect;
     private const string _FISHTANK = "Fish Tank";
-    private Vector2 _size;
     private float _speed;
     private Vector3 _movePoint;
-    private Quaternion _targetRotation;
 
     private void OnEnable()
     {
-        DragItem._onItemDrag += StartUp;
+        //DragItem._onItemDrag += StartUp;
     }
     void Start()
     {        
-        //_rect = GetComponent<Rect>();        
-        //_animator = GetComponent<Animator>();
-        _speed = Random.Range(0.2f, 0.8f);
-        //_animator.speed = _speed / 2;
+        _speed = Random.Range(0.1f, 0.3f);
 
-        if (this.gameObject.tag.Equals(_FISHTANK))
+        if (this.gameObject.CompareTag(_FISHTANK))
         {
             _movePoint = SetDirection();
         }
@@ -68,6 +61,6 @@ public class FishTankSwim : MonoBehaviour
     }
     private void OnDisable()
     {
-        DragItem._onItemDrag -= StartUp;
+        //DragItem._onItemDrag -= StartUp;
     }
 }

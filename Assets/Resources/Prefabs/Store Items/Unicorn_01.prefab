@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6702025778072451561}
   - component: {fileID: -8539721205978263692}
   - component: {fileID: -977566792853273864}
+  - component: {fileID: 1836949612800056515}
+  - component: {fileID: -3747277639598474295}
   m_Layer: 0
   m_Name: Unicorn_01
   m_TagString: Untagged
@@ -136,3 +138,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1836949612800056515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4722925484984732079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62c4f143d061dd4291a05f792ea6aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isStatic: 0
+--- !u!114 &-3747277639598474295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4722925484984732079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ead0e91e1aa3ab4b95a755ade5c7619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

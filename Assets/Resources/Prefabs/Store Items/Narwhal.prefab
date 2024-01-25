@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -4787789103798540257}
   - component: {fileID: -2875426946644403507}
   - component: {fileID: 702236202770921150}
+  - component: {fileID: 883097809450815864}
   m_Layer: 0
   m_Name: Narwhal
   m_TagString: Untagged
@@ -149,4 +150,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ead0e91e1aa3ab4b95a755ade5c7619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidBody: {fileID: 0}
+--- !u!114 &883097809450815864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309090289925251428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62c4f143d061dd4291a05f792ea6aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStatic: 0
+  isDynamic: 0

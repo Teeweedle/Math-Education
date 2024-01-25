@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -2796941184678291052}
   - component: {fileID: 1152779776672836257}
   - component: {fileID: -9111454176758697911}
+  - component: {fileID: -8092516323100365535}
   m_Layer: 0
   m_Name: Shipwreck
   m_TagString: Untagged
@@ -136,3 +137,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-8092516323100365535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8878266147371196337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62c4f143d061dd4291a05f792ea6aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isStatic: 1

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4022980328134869404}
   - component: {fileID: 3805220276578706192}
   - component: {fileID: -7852887302906486150}
+  - component: {fileID: -7413388691818312022}
   m_Layer: 0
   m_Name: Mermaid
   m_TagString: Untagged
@@ -136,3 +137,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-7413388691818312022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6452226476092120147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62c4f143d061dd4291a05f792ea6aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isStatic: 1

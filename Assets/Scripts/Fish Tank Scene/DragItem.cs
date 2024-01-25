@@ -40,9 +40,13 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     {
         _onItemDrag?.Invoke(true);
         _itemPostion = transform.position;
-        //disable FishTankSwim
-        this.gameObject.GetComponent<FishTankSwim>().enabled = false;
-        if (!this.gameObject.tag.Equals(_FISHTANK))
+        //if objects moves; disable the move
+        if (!this.gameObject.GetComponent<RewardItemProperties>()._IsStatic)
+        {
+            SendMessage("StartUp", true);
+            this.gameObject.GetComponent<FishTankSwim>().enabled = false;
+        }        
+        if (!this.gameObject.CompareTag(_FISHTANK))
         {
             this.transform.SetParent(_myFishTank.transform);
             this.tag = _FISHTANK;
@@ -65,11 +69,16 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         }
         else
         {
-            //add back to fish tank and let swim (animate)
-            this.gameObject.GetComponent<FishTankSwim>().enabled = true;
+            //if objects moves; disable the move
+            if (!this.gameObject.GetComponent<RewardItemProperties>()._IsStatic)
+            {
+                this.gameObject.GetComponent<FishTankSwim>().enabled = true;
+                SendMessage("StartUp", false);
+            }
         }
         transform.position = _itemPostion;
         _onItemDrag?.Invoke(false);
+
     }
     /// <summary>
     /// Adds item to collection list and untags it so it isn't saved to fish tank.
