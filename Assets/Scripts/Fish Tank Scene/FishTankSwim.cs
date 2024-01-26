@@ -1,17 +1,20 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FishTankSwim : MonoBehaviour
 {
     private const string _FISHTANK = "Fish Tank";
     private float _speed;
-    private Vector3 _movePoint;
+    private Vector3 _movePoint, _left, _right;
 
     private void OnEnable()
     {
         //DragItem._onItemDrag += StartUp;
     }
     void Start()
-    {        
+    {
+        _left = new Vector3(-1, 1, 1);
+        _right = new Vector3(1, 1, 1);
         _speed = Random.Range(0.1f, 0.3f);
 
         if (this.gameObject.CompareTag(_FISHTANK))
@@ -33,11 +36,11 @@ public class FishTankSwim : MonoBehaviour
     {
         if ((_movePoint - transform.position).x >= 0)
         {
-            transform.right = Vector3.left;
+            this.gameObject.GetComponent<RectTransform>().localScale = _left;
         }
         else
         {
-            transform.right = Vector3.right;
+            this.gameObject.GetComponent<RectTransform>().localScale = _right;
         }
     }
 
