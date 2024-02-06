@@ -89,10 +89,14 @@ public class StoreManager : MonoBehaviour
     /// </summary>
     private void LoadStore()
     {
+        GameObject lTempObj = null;
         _storeItems = Resources.LoadAll<GameObject>(_STOREITEMS);
         for (int i = 0; i < _storeItems.Length; i++)
         {
-            Instantiate(_storeItems[i], _storeContent.transform);
+            lTempObj = Instantiate(_storeItems[i], _storeContent.transform);
+            //turns off movememnt script if the object is of a type that moves
+            if(!lTempObj.GetComponent<RewardItemProperties>()._IsStatic)
+                lTempObj.GetComponent<FishTankSwim>().enabled = false;
         }
     }
    /// <summary>

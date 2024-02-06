@@ -51,7 +51,7 @@ public class DisplayCollection : MonoBehaviour
         DisplayFishTank();
     }
     /// <summary>
-    /// Display collection in the scrollview.
+    /// Display collection in the scrollview. Disables FishTankSwim so the objects down't move while in the list.
     /// </summary>
     /// <param name="aCollection"></param>
     private void ShowCollection(List<string> aCollection)
@@ -63,6 +63,7 @@ public class DisplayCollection : MonoBehaviour
             lTempObj = Instantiate(Resources.Load<GameObject>(_RESOURCEPATH + a), _myCollectionContent.transform);
             Destroy(lTempObj.GetComponent<PreviewPurchase>());
             lTempObj.AddComponent<DragItem>();
+            DisableSwim(lTempObj);
         }
         CheckCollectionSize(_collectionCount);
     }  
@@ -144,14 +145,31 @@ public class DisplayCollection : MonoBehaviour
         int lIndex = 0;
         foreach (string name in aNameList)
         {
-            lTempObj = Instantiate(Resources.Load<GameObject>(_RESOURCEPATH + name), aPositionList[lIndex], 
+            lTempObj = Instantiate(Resources.Load<GameObject>(_RESOURCEPATH + name), aPositionList[lIndex],
                 Quaternion.identity, _myFishTank.transform);
             lTempObj.tag = _FISHTANK;
             Destroy(lTempObj.GetComponent<PreviewPurchase>());
-            //TODO: Enable Fish Tank Swim / Animation
-            //lTempObj.AddComponent<FishTankSwim>();
+            EnableSwim(lTempObj);
             lTempObj.AddComponent<DragItem>();
             lIndex++;
         }
+    }
+    /// <summary>
+    /// Checks if object is not static, then disables if it is
+    /// </summary>
+    /// <param name="aGameObject"></param>
+    private void DisableSwim(GameObject aGameObject)
+    {
+        if (!aGameObject.GetComponent<RewardItemProperties>()._IsStatic)
+            aGameObject.GetComponent<FishTankSwim>().enabled = false;
+    }
+    /// <summary>
+    /// Checks if object is not static, then enables if it is
+    /// </summary>
+    /// <param name="aGameObject"></param>
+    private void EnableSwim(GameObject aGameObject)
+    {
+        if (!aGameObject.GetComponent<RewardItemProperties>()._IsStatic)
+            aGameObject.GetComponent<FishTankSwim>().enabled = true;
     }
 }
