@@ -28,17 +28,23 @@ public class ButtonManager : MonoBehaviour
     private void OnDisable()
     {
         PrefabSelection._onPrefabSelected -= ChangeSelection;
-    }    
+    }   
+    /// <summary>
+    /// Colors the button with the name of the param green to show it is selected and colors the opposite white (normal).
+    /// </summary>
+    /// <param name="aName"></param>
     private void ChangeSelection(string aName)
     {
-        //if (aName.Equals("Mermaids"))
-        //{
-        //    EventSystem.current.SetSelectedGameObject(_mermaidButton.gameObject);
-        //}
-        //else
-        //{
-        //    EventSystem.current.SetSelectedGameObject(_pirateButton.gameObject); 
-        //}
+        if (aName.Equals("Mermaids"))
+        {
+            _mermaidButton.GetComponent<Image>().color = Color.green;
+            _pirateButton.GetComponent<Image>().color = Color.white;
+        }
+        else
+        {
+            _mermaidButton.GetComponent<Image>().color = Color.white;
+            _pirateButton.GetComponent<Image>().color = Color.green;
+        }
     }
     public void ShowDifficultySelection()
     {

@@ -19,6 +19,9 @@ public class PrefabSelection : MonoBehaviour
             PlayerInfo._prefabSelection = _MERMAIDS;
         }
     }
+    /// <summary>
+    /// Passes the text on the button click to an event.
+    /// </summary>
     public void OnClick()
     {        
         PlayerInfo._prefabSelection = _buttonText.text;
