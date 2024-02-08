@@ -5,6 +5,7 @@ public static class PlayerProfile
 {
     public static string _name;
     public static string _coins;
+    public static string _profilePicture;
     public static List<string> _collectionScrollList;
     public static List<string> _itemNameList;
     public static List<Vector2> _itemPositionList;
@@ -13,6 +14,7 @@ public static class PlayerProfile
     {
         _name = aProfile._name;
         _coins = aProfile._coins;
+        _profilePicture = aProfile._profilePicture;
         _collectionScrollList = aProfile._collectionScrollList;
         _itemNameList = aProfile._itemNameList;
         _itemPositionList = aProfile._itemPositionList;        
@@ -29,6 +31,10 @@ public static class PlayerProfile
         lTempProfile = SaveSystem.LoadPlayer(aProfile);
         _name = lTempProfile._name;
         _coins = lTempProfile._coins;
+        if(string.IsNullOrEmpty(lTempProfile._profilePicture)) {
+            _profilePicture = "Mermaid_01";
+        }else
+            _profilePicture = lTempProfile._profilePicture;
         _collectionScrollList = lTempProfile._collectionScrollList;
         _itemNameList = lTempProfile._itemNameList;
         _itemPositionList = lTempProfile._itemPositionList;
@@ -39,6 +45,7 @@ public static class PlayerProfile
         TempProfile aProfile = new TempProfile();
         aProfile._name = _name;
         aProfile._coins = _coins;
+        aProfile._profilePicture = _profilePicture;
         aProfile._collectionScrollList = _collectionScrollList;
         aProfile._itemNameList = _itemNameList;
         aProfile._itemPositionList = _itemPositionList;

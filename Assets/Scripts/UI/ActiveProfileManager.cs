@@ -1,18 +1,25 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class ActiveProfileManager : MonoBehaviour
 {
     private const string _PROFILE = "Profile";
     private const string _HIDEPROFILE = "Hide";
     private const string _SHOWPROFILE = "Show";
+    private const string _PROFILEPICTUREPATH = "Sprites/Profile Pictures/";
     private const int _STARTMENU = 0;
 
     [Header("Active Profile")]
     [SerializeField] private TextMeshProUGUI _profileName;
     [SerializeField] private TextMeshProUGUI _profileCoins;
     [SerializeField] private Animator _profileAnimator;
+    [SerializeField] private UnityEngine.UI.Image _profilePicture;
+    [SerializeField] private GameObject _profilePictureHolder;
+
 
     private void OnEnable()
     {
@@ -23,6 +30,8 @@ public class ActiveProfileManager : MonoBehaviour
         MathProblem._endGame += ShowProfile;
 
         MatchingGame._endGame += ShowProfile;
+
+        SelectProfilePicture._changeProfilePicture += ChangePicture;
     }
     private void Start()
     {
@@ -41,6 +50,14 @@ public class ActiveProfileManager : MonoBehaviour
     {        
         _profileName.text = PlayerProfile._name;
         _profileCoins.text = PlayerProfile._coins;
+        _profilePicture.sprite = Resources.Load<Sprite>(_PROFILEPICTUREPATH + PlayerProfile._profilePicture);
+    }
+    private void ChangePicture(string aProfilePicture)
+    {
+        _profilePicture.sprite = Resources.Load<Sprite>(_PROFILEPICTUREPATH + aProfilePicture);
+        PlayerProfile._profilePicture = aProfilePicture;
+        PlayerProfile.SaveProfile();
+        _profilePictureHolder?.SetActive(!_profilePictureHolder.activeSelf);
     }
     private void UpdateScore(int aScore)
     {
@@ -101,6 +118,8 @@ public class ActiveProfileManager : MonoBehaviour
         MathProblem._endGame -= ShowProfile;
 
         MatchingGame._endGame -= ShowProfile;
+
+        SelectProfilePicture._changeProfilePicture -= ChangePicture;
     }
 
 }
