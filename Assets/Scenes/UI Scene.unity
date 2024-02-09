@@ -1072,7 +1072,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &410613394
 RectTransform:
@@ -1093,8 +1093,8 @@ RectTransform:
   - {fileID: 534170304}
   - {fileID: 1994077569}
   - {fileID: 310534298}
-  - {fileID: 1197630601}
   - {fileID: 2047440838}
+  - {fileID: 1197630601}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5156,6 +5156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2047440838}
   - component: {fileID: 2047440839}
+  - component: {fileID: 2047440840}
   m_Layer: 5
   m_Name: Profile Picture Holder
   m_TagString: Untagged
@@ -5206,6 +5207,18 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 6
+--- !u!225 &2047440840
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047440837}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2077649462
 GameObject:
   m_ObjectHideFlags: 0
