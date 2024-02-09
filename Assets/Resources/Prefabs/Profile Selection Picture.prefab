@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 608730843158477488}
   - component: {fileID: 7414673800323048728}
   - component: {fileID: 8422439539888254325}
-  - component: {fileID: -2717146406919822682}
+  - component: {fileID: 9076482732213340792}
   m_Layer: 0
   m_Name: Profile Selection Picture
   m_TagString: Untagged
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-2717146406919822682
+--- !u!114 &9076482732213340792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,6 +85,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 638687007128627213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb922302253ac03488c1deeb3c2b109d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c8598a33666bc54595a555cbf6d9d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

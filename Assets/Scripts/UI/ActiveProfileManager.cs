@@ -1,4 +1,5 @@
 using System;
+using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,6 +21,8 @@ public class ActiveProfileManager : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Image _profilePicture;
     [SerializeField] private GameObject _profilePictureHolder;
 
+    public delegate void ProfilePictures();
+    public static event ProfilePictures _toggleProfilePictures;
 
     private void OnEnable()
     {
@@ -57,7 +60,7 @@ public class ActiveProfileManager : MonoBehaviour
         _profilePicture.sprite = Resources.Load<Sprite>(_PROFILEPICTUREPATH + aProfilePicture);
         PlayerProfile._profilePicture = aProfilePicture;
         PlayerProfile.SaveProfile();
-        _profilePictureHolder?.SetActive(!_profilePictureHolder.activeSelf);
+        _toggleProfilePictures?.Invoke();
     }
     private void UpdateScore(int aScore)
     {
