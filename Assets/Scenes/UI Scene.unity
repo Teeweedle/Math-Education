@@ -745,7 +745,6 @@ MonoBehaviour:
   _profileCoins: {fileID: 1704318101}
   _profileAnimator: {fileID: 310534302}
   _profilePicture: {fileID: 118307309}
-  _profilePictureHolder: {fileID: 2047440837}
 --- !u!114 &310534300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3035,6 +3034,7 @@ GameObject:
   - component: {fileID: 1197630604}
   - component: {fileID: 1197630603}
   - component: {fileID: 1197630602}
+  - component: {fileID: 1197630606}
   m_Layer: 5
   m_Name: Game Finish Popup
   m_TagString: Untagged
@@ -3143,6 +3143,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197630600}
   m_CullTransparentMesh: 1
+--- !u!114 &1197630606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197630600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f2d481cbae33b408d56e75b3080105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _darkenBehindModalAnimator: {fileID: 1246077070}
+  _darkenBehindModal: {fileID: 1246077065}
 --- !u!1 &1239652757
 GameObject:
   m_ObjectHideFlags: 0
@@ -3392,7 +3406,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c4912ebe5b926924d8ccdb5e46af766a, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0

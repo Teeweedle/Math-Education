@@ -1,10 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameFinishPopup : MonoBehaviour
 {
@@ -17,6 +12,9 @@ public class GameFinishPopup : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _answer;
     [SerializeField] private TextMeshProUGUI _mathProblem;
     [SerializeField] private Animator _popupAnimator;
+
+    public delegate void Darken();
+    public static event Darken _darken;
 
     private void OnEnable()
     {
@@ -33,6 +31,7 @@ public class GameFinishPopup : MonoBehaviour
         if(!_popupAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name.Equals(_HIDDEN)) 
         {
             _popupAnimator.SetTrigger(_HIDEPOPUP);
+            _darken?.Invoke();
         }        
     }    
     private void ShowPopup(string aTextOutput, string aMathProblem, int aScore, int aAnswer)
@@ -42,6 +41,7 @@ public class GameFinishPopup : MonoBehaviour
         _scoreOutputPopup.text = aScore.ToString();
         _answer.text = aAnswer.ToString();
         _popupAnimator.SetTrigger(_SHOWPOPUP);
+        _darken?.Invoke();
     }    
     private void OnDisable()
     {

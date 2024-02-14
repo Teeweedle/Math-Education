@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class FallingPrefab : MonoBehaviour
 {
@@ -55,16 +51,19 @@ public class FallingPrefab : MonoBehaviour
     /// </summary>
     private void OnMouseDown()
     {
-        if (!_mathProblem.CheckGameState(_valueHeld))
-        {            
-            _onPlaySound?.Invoke("WrongAnswer_SE");
-            
-            for (int i = 0; i < UnityEngine.Random.Range(2, 4); i++)
-            {   //spawn x's to indicate wrong answer
-                Instantiate(_wrongAnswer, this.transform.position, quaternion.identity);
+        if(Time.timeScale > 0.0f)
+        {
+            if (!_mathProblem.CheckGameState(_valueHeld))
+            {
+                _onPlaySound?.Invoke("WrongAnswer_SE");
+
+                for (int i = 0; i < UnityEngine.Random.Range(2, 4); i++)
+                {   //spawn x's to indicate wrong answer
+                    Instantiate(_wrongAnswer, this.transform.position, quaternion.identity);
+                }
             }
-        }
-        Destroy(this.gameObject);        
+            Destroy(this.gameObject);
+        }                
     }
     private void UpdateMathArray()
     {

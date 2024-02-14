@@ -127,7 +127,6 @@ public class MathProblem : MonoBehaviour
     public void ShowPopUp(string aMsg)
     {
         _mathSignAnimator.SetTrigger(_HIDEMATHSIGN);        
-        //_uiManager.ShowPopUp(aMsg, GetMathProblem(), _score, GetAnswer());
         _endGame?.Invoke(aMsg, GetMathProblem(), _score, GetAnswer());
         Time.timeScale = 0;
     }

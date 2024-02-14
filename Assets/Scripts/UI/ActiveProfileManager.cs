@@ -1,10 +1,6 @@
-using System;
-using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class ActiveProfileManager : MonoBehaviour
 {
@@ -19,7 +15,6 @@ public class ActiveProfileManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _profileCoins;
     [SerializeField] private Animator _profileAnimator;
     [SerializeField] private UnityEngine.UI.Image _profilePicture;
-    [SerializeField] private GameObject _profilePictureHolder;
 
     public delegate void ProfilePictures();
     public static event ProfilePictures _toggleProfilePictures;

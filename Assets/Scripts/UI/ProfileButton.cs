@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using System.Threading.Tasks;
 
 public class ProfileButton : MonoBehaviour
 {
@@ -15,9 +14,10 @@ public class ProfileButton : MonoBehaviour
 
     [SerializeField] private GameObject _profilePicturePrefab;
     [SerializeField] private GameObject _profilePictureHolder;
-    [SerializeField] private GameObject _darkenBehindModal;
-    [SerializeField] private Animator _darkenBehindModalAnimator;
     [SerializeField] private Animator _modalAnimator;
+
+    public delegate void Darken();
+    public static event Darken _darken;
 
     private void OnEnable()
     {
@@ -38,7 +38,7 @@ public class ProfileButton : MonoBehaviour
             {
                 lTempGO = Instantiate(_profilePicturePrefab, _profilePictureHolder.transform);
                 lTempGO.GetComponent<UnityEngine.UI.Image>().sprite = aSprite;
-            }
+            }            
             ToggleProfileModal();
             _isLoaded = true;
         }
@@ -47,23 +47,14 @@ public class ProfileButton : MonoBehaviour
             ToggleProfileModal();
         }
     }
-    public async void ToggleProfileModal()
+    public void ToggleProfileModal()
     {
         if (_isShowing)
-        {
-            _modalAnimator.SetTrigger(_HIDEMODAL);
-            _darkenBehindModalAnimator.SetTrigger(_HIDEMODAL);
-            _isShowing = false;
-            await Task.Delay(1000);
-            _darkenBehindModal.SetActive(_isShowing);            
-        }
+            _modalAnimator.SetTrigger(_HIDEMODAL);        
         else
-        {
-            _modalAnimator.SetTrigger(_SHOWMODAL);            
-            _isShowing = true;
-            _darkenBehindModal.SetActive(_isShowing);
-            _darkenBehindModalAnimator.SetTrigger(_SHOWMODAL);
-        }
+            _modalAnimator.SetTrigger(_SHOWMODAL);                    
+        _darken?.Invoke();
+        _isShowing = !_isShowing;
     }
 
     private void OnDisable()
