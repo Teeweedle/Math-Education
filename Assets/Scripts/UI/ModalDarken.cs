@@ -15,6 +15,7 @@ public class ModalDarken : MonoBehaviour
     {
         GameFinishPopup._darken += ToggleDarken;
         ProfileButton._darken += ToggleDarken;
+        ModalScript._darken += ToggleDarken;
     }
 
     private async void ToggleDarken()
@@ -42,6 +43,7 @@ public class ModalDarken : MonoBehaviour
     {
         GameFinishPopup._darken -= ToggleDarken;
         ProfileButton._darken -= ToggleDarken;
+        ModalScript._darken -= ToggleDarken;
     }
 
 }

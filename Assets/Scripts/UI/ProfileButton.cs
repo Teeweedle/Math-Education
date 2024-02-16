@@ -19,10 +19,9 @@ public class ProfileButton : MonoBehaviour
     public delegate void Darken();
     public static event Darken _darken;
 
-    private void OnEnable()
-    {
-        ActiveProfileManager._toggleProfilePictures += ToggleProfileModal;
-    }
+    public delegate void ToggleModal();
+    public static event ToggleModal _toggleModal;
+
     /// <summary>
     /// Loads profile picture directory into a grid so the player can choose a new profile picture. 
     /// Once loaded the pictures are toggle on and off rather than loading them every time.
@@ -39,26 +38,12 @@ public class ProfileButton : MonoBehaviour
                 lTempGO = Instantiate(_profilePicturePrefab, _profilePictureHolder.transform);
                 lTempGO.GetComponent<UnityEngine.UI.Image>().sprite = aSprite;
             }            
-            ToggleProfileModal();
+            _toggleModal?.Invoke();
             _isLoaded = true;
         }
         else
         {
-            ToggleProfileModal();
+            _toggleModal?.Invoke();
         }
-    }
-    public void ToggleProfileModal()
-    {
-        if (_isShowing)
-            _modalAnimator.SetTrigger(_HIDEMODAL);        
-        else
-            _modalAnimator.SetTrigger(_SHOWMODAL);                    
-        _darken?.Invoke();
-        _isShowing = !_isShowing;
-    }
-
-    private void OnDisable()
-    {
-        ActiveProfileManager._toggleProfilePictures -= ToggleProfileModal;
     }
 }

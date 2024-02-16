@@ -36,7 +36,7 @@ public class MathProblem : MonoBehaviour
         _score = aMathArray.Length - 1;
         _currentNumberOfTries = _MAXNUMTRIES;
         _mathSignAnimator.SetTrigger(_SHOWMATHSIGN);
-        _startGame?.Invoke();
+        //_startGame?.Invoke();
     }
     /// <summary>
     /// Accepts an array and randomly chooses a value to be the answer.
@@ -142,10 +142,9 @@ public class MathProblem : MonoBehaviour
     {
         return "";
     }
-    private void OnDestroy()
-    {
-        _startGame = null;
-        _endGame = null;
-    }
-
+    //private void OnDestroy()
+    //{
+    //    _startGame = null;
+    //    _endGame = null;
+    //}
 }
