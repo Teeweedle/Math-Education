@@ -18,7 +18,7 @@ public class ModalScript : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Image _finishImage;
     [SerializeField] private UnityEngine.UI.Image _scoreContainer;
     [SerializeField] private GameObject _profilePictureHolder;
-    [SerializeField] private GameObject _playAgainButton, _backButton;
+    [SerializeField] private GameObject _yesButton, _noButton, _closeButton;
 
     public delegate void Darken();
     public static event Darken _darken;
@@ -36,6 +36,7 @@ public class ModalScript : MonoBehaviour
         BackButton._quitGame += ToggleModal;
         PlayAgainButton._playAgain += ToggleModal;
         ActiveProfileManager._toggleProfilePictures += ToggleModal;
+        CloseModal._toggleModal += ToggleModal;
     }
     private void OnDisable()
     {
@@ -44,6 +45,7 @@ public class ModalScript : MonoBehaviour
         BackButton._quitGame -= ToggleModal;
         PlayAgainButton._playAgain -= ToggleModal;
         ActiveProfileManager._toggleProfilePictures -= ToggleModal;
+        CloseModal._toggleModal -= ToggleModal;
     }
     /// <summary>
     /// Overload for profil modal
@@ -59,8 +61,9 @@ public class ModalScript : MonoBehaviour
             _finishImage.gameObject.SetActive(false);
             _scoreContainer.gameObject.SetActive(false);
             _profilePictureHolder.SetActive(true);
-            _playAgainButton.SetActive(false);
-            _backButton.SetActive(false);
+            _yesButton.SetActive(false);
+            _noButton.SetActive(false);
+            _closeButton.SetActive(true);
         }
 
         AnimateModal();
@@ -82,8 +85,9 @@ public class ModalScript : MonoBehaviour
             _finishImage.gameObject.SetActive(true);
             _scoreContainer.gameObject.SetActive(true);
             _profilePictureHolder.SetActive(false);
-            _playAgainButton.SetActive(true);
-            _backButton.SetActive(true);
+            _yesButton.SetActive(true);
+            _noButton.SetActive(true);
+            _closeButton.SetActive(false);
 
             _textOutput.text = aTextOutput;
             _mathProblem.text = aMathProblem;

@@ -11,11 +11,11 @@ public class ModalDarken : MonoBehaviour
     [SerializeField] private GameObject _darkenBehindModal;
 
     private bool _isShowing;
+
     private void OnEnable()
     {
-        GameFinishPopup._darken += ToggleDarken;
-        ProfileButton._darken += ToggleDarken;
         ModalScript._darken += ToggleDarken;
+        CloseModal._darken += ToggleDarken;
     }
 
     private async void ToggleDarken()
@@ -41,9 +41,8 @@ public class ModalDarken : MonoBehaviour
     }
     private void OnDisable()
     {
-        GameFinishPopup._darken -= ToggleDarken;
-        ProfileButton._darken -= ToggleDarken;
         ModalScript._darken -= ToggleDarken;
+        CloseModal._darken -= ToggleDarken;
     }
 
 }

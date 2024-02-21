@@ -55,7 +55,7 @@ public class ActiveProfileManager : MonoBehaviour
         _profilePicture.sprite = Resources.Load<Sprite>(_PROFILEPICTUREPATH + aProfilePicture);
         PlayerProfile._profilePicture = aProfilePicture;
         PlayerProfile.SaveProfile();
-        _toggleProfilePictures?.Invoke();
+        //_toggleProfilePictures?.Invoke();
     }
     private void UpdateScore(int aScore)
     {

@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class GameFinishPopup : MonoBehaviour
 {
-    public delegate void Darken();
-    public static event Darken _darken;
-
     public delegate void Modal(string aTextOutput, string aMathProblem, int aScore, int aAnswer);
     public static event Modal _modal;
 

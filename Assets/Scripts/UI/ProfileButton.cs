@@ -4,20 +4,12 @@ using UnityEngine;
 
 public class ProfileButton : MonoBehaviour
 {
-    private const string _SHOWMODAL = "Show";
-    private const string _HIDEMODAL = "Hide";
-
     private List<Sprite> _profileImages = new List<Sprite>();
     private const string _PROFILEPICTUREPATH = "Sprites/Profile Pictures/";
     private bool _isLoaded = false;
-    private bool _isShowing = false;
 
     [SerializeField] private GameObject _profilePicturePrefab;
     [SerializeField] private GameObject _profilePictureHolder;
-    [SerializeField] private Animator _modalAnimator;
-
-    public delegate void Darken();
-    public static event Darken _darken;
 
     public delegate void ToggleModal();
     public static event ToggleModal _toggleModal;
