@@ -37,6 +37,7 @@ public class ModalScript : MonoBehaviour
         PlayAgainButton._playAgain += ToggleModal;
         ActiveProfileManager._toggleProfilePictures += ToggleModal;
         CloseModal._toggleModal += ToggleModal;
+        PlayGameButton._playAgain += ToggleModal;
     }
     private void OnDisable()
     {
@@ -46,6 +47,7 @@ public class ModalScript : MonoBehaviour
         PlayAgainButton._playAgain -= ToggleModal;
         ActiveProfileManager._toggleProfilePictures -= ToggleModal;
         CloseModal._toggleModal -= ToggleModal;
+        PlayGameButton._playAgain -= ToggleModal;
     }
     /// <summary>
     /// Overload for profil modal

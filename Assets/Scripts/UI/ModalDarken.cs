@@ -15,7 +15,6 @@ public class ModalDarken : MonoBehaviour
     private void OnEnable()
     {
         ModalScript._darken += ToggleDarken;
-        CloseModal._darken += ToggleDarken;
     }
 
     private async void ToggleDarken()
@@ -42,7 +41,6 @@ public class ModalDarken : MonoBehaviour
     private void OnDisable()
     {
         ModalScript._darken -= ToggleDarken;
-        CloseModal._darken -= ToggleDarken;
     }
 
 }

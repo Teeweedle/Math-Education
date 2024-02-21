@@ -13,6 +13,9 @@ public class PlayGameButton : ButtonManager
     [Header("Play Button")]
     public bool _isShowing = true;
 
+    public delegate void PlayAgain();
+    public static event PlayAgain _playAgain;
+
     private void Start()
     {
         //checks for last played profile, if it exists loads next scene
@@ -25,7 +28,8 @@ public class PlayGameButton : ButtonManager
     //plays animation to hide Play Game button
     public void PlayGame()
     {
-        HidePlayButton();
-        ShowProfilePanel();
+        _playAgain?.Invoke();
+        //HidePlayButton();
+        //ShowProfilePanel();
     }    
 }
