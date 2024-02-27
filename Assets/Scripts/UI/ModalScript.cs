@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ModalScript : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class ModalScript : MonoBehaviour
     private const string _HIDEMODAL = "Hide";
 
     [SerializeField] private Animator _modalAnimator;
-    [SerializeField] private Sprite _completed, _profile;
+    [SerializeField] private Sprite _completed, _profile, _about, _chest, _heart;
     [Header("Modal Options")]
     [SerializeField] private UnityEngine.UI.Image _modalTitle;
     [SerializeField] private TextMeshProUGUI _mathProblem;
@@ -38,6 +39,7 @@ public class ModalScript : MonoBehaviour
         ActiveProfileManager._toggleProfilePictures += ToggleModal;
         CloseModal._toggleModal += ToggleModal;
         PlayGameButton._playAgain += ToggleModal;
+        AboutButton._toggleModal += ToggleModal;
     }
     private void OnDisable()
     {
@@ -48,6 +50,7 @@ public class ModalScript : MonoBehaviour
         ActiveProfileManager._toggleProfilePictures -= ToggleModal;
         CloseModal._toggleModal -= ToggleModal;
         PlayGameButton._playAgain -= ToggleModal;
+        AboutButton._toggleModal -= ToggleModal;
     }
     /// <summary>
     /// Overload for profil modal
@@ -70,6 +73,40 @@ public class ModalScript : MonoBehaviour
 
         AnimateModal();
     }
+    private void ToggleModal(string aButtonName)
+    {
+
+        if (!_isShowing)
+        {            
+            _mathProblem.gameObject.SetActive(false);
+            _answer.gameObject.SetActive(false);            
+            _scoreContainer.gameObject.SetActive(false);
+            _yesButton.SetActive(false);
+            _noButton.SetActive(false);
+            _closeButton.SetActive(true);
+
+            switch (aButtonName)
+            {
+                case "About Button":
+                    _modalTitle.sprite = _about;
+                    _profilePictureHolder.SetActive(false);
+                    _textOutput.gameObject.SetActive(true);
+                    _finishImage.gameObject.SetActive(true);
+                    _finishImage.GetComponent<Image>().sprite = _heart;
+                    _textOutput.text = "This game was made by a father, guided by a teacher for their loved children. " +
+                        "We love you Nora and Lucas.";
+                    break;
+                case "Profile Button":
+                    _modalTitle.sprite = _profile;
+                    _profilePictureHolder.SetActive(true);
+                    _textOutput.gameObject.SetActive(false);
+                    _finishImage.gameObject.SetActive(false);
+                    break;
+                default: break;
+            } 
+        }
+        AnimateModal();
+    }
     /// <summary>
     /// Overload for game finish modal
     /// </summary>
@@ -85,6 +122,7 @@ public class ModalScript : MonoBehaviour
             _mathProblem.gameObject.SetActive(true);
             _answer.gameObject.SetActive(true);
             _finishImage.gameObject.SetActive(true);
+            _finishImage.GetComponent<Image>().sprite = _chest;
             _scoreContainer.gameObject.SetActive(true);
             _profilePictureHolder.SetActive(false);
             _yesButton.SetActive(true);

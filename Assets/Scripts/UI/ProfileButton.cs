@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ProfileButton : MonoBehaviour
 {
@@ -10,8 +12,9 @@ public class ProfileButton : MonoBehaviour
 
     [SerializeField] private GameObject _profilePicturePrefab;
     [SerializeField] private GameObject _profilePictureHolder;
+    [SerializeField] private Button _button;
 
-    public delegate void ToggleModal();
+    public delegate void ToggleModal(string aButtonName);
     public static event ToggleModal _toggleModal;
 
     /// <summary>
@@ -30,12 +33,12 @@ public class ProfileButton : MonoBehaviour
                 lTempGO = Instantiate(_profilePicturePrefab, _profilePictureHolder.transform);
                 lTempGO.GetComponent<UnityEngine.UI.Image>().sprite = aSprite;
             }            
-            _toggleModal?.Invoke();
+            _toggleModal?.Invoke(_button.name); 
             _isLoaded = true;
         }
         else
         {
-            _toggleModal?.Invoke();
+            _toggleModal?.Invoke(_button.name);
         }
     }
 }

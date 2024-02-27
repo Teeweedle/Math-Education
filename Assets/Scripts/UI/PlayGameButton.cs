@@ -29,7 +29,5 @@ public class PlayGameButton : ButtonManager
     public void PlayGame()
     {
         _playAgain?.Invoke();
-        //HidePlayButton();
-        //ShowProfilePanel();
     }    
 }
