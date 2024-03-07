@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ProfileButton : MonoBehaviour
@@ -24,21 +25,26 @@ public class ProfileButton : MonoBehaviour
     /// <param name="eventData"></param>
     public void OnClick()
     {
-        if (!_isLoaded)
+        Scene lScene = SceneManager.GetSceneAt(1);
+        //button only works if on the game selection screen
+        if (lScene.buildIndex == 1)
         {
-            _profileImages = Resources.LoadAll<Sprite>(_PROFILEPICTUREPATH).ToList();
-            GameObject lTempGO;
-            foreach (Sprite aSprite in _profileImages)
+            if (!_isLoaded)
             {
-                lTempGO = Instantiate(_profilePicturePrefab, _profilePictureHolder.transform);
-                lTempGO.GetComponent<UnityEngine.UI.Image>().sprite = aSprite;
-            }            
-            _toggleModal?.Invoke(_button.name); 
-            _isLoaded = true;
-        }
-        else
-        {
-            _toggleModal?.Invoke(_button.name);
-        }
+                _profileImages = Resources.LoadAll<Sprite>(_PROFILEPICTUREPATH).ToList();
+                GameObject lTempGO;
+                foreach (Sprite aSprite in _profileImages)
+                {
+                    lTempGO = Instantiate(_profilePicturePrefab, _profilePictureHolder.transform);
+                    lTempGO.GetComponent<UnityEngine.UI.Image>().sprite = aSprite;
+                }
+                _toggleModal?.Invoke(_button.name);
+                _isLoaded = true;
+            }
+            else
+            {
+                _toggleModal?.Invoke(_button.name);
+            }
+        }        
     }
 }

@@ -9,6 +9,9 @@ public class LoadFishTankButton : MonoBehaviour
     public void OnClick()
     {
         Scene lScene = SceneManager.GetSceneAt(1);
-        LoadScene._instance.LoadSceneTransition(lScene.name, _FISHTANKSCENE);
+        if(lScene.buildIndex == 1)
+        {
+            LoadScene._instance.LoadSceneTransition(lScene.name, _FISHTANKSCENE);
+        }        
     }
 }

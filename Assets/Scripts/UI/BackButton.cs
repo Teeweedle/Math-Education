@@ -21,26 +21,12 @@ public class BackButton : MonoBehaviour
         Scene lScene = SceneManager.GetSceneAt(1);
 
         if (lScene.buildIndex == _GAMESELECTION)
-        { 
-            if (_buttonManager.GetAcceptProfile()._isShowing)//go back to profile selection
-            {
-                _buttonManager.ShowProfilePanel();
-                _buttonManager.HideCreateProfile();
-            }else if (_buttonManager.GetGameSelection()._isShowing) 
-            {
-                _buttonManager.HideGameSelection();
-                _buttonManager.ShowProfilePanel();
-            }else if (_buttonManager.GetDifficultySelectionGroup()._isShowing)
+        {
+            if (_buttonManager.GetDifficultySelectionGroup()._isShowing)
             {
                 _buttonManager.HideDifficultySelection();
                 _buttonManager.ShowGameSelection();
             }
-        }
-        else
-        {
-            LoadScene._instance.LoadSceneTransition(lScene.name, _GAMESELECTION);
-            Time.timeScale = 1;
-            _quitGame?.Invoke();
         }
     }
     /// <summary>

@@ -49,6 +49,8 @@ public class CreateProfileButtonClick : ButtonManager
                 HideProfilePanel();
                 ShowGameSelection();
             }
+            ShowBackButton();
+            ShowActiveProfilePanel();
         }        
     }
 

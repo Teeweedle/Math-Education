@@ -19,7 +19,7 @@ public class ModalScript : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Image _finishImage;
     [SerializeField] private UnityEngine.UI.Image _scoreContainer;
     [SerializeField] private GameObject _profilePictureHolder;
-    [SerializeField] private GameObject _yesButton, _noButton, _closeButton;
+    [SerializeField] private GameObject _yesButton, _noButton, _closeButton, _logoutButton;
 
     public delegate void Darken();
     public static event Darken _darken;
@@ -40,6 +40,7 @@ public class ModalScript : MonoBehaviour
         CloseModal._toggleModal += ToggleModal;
         PlayGameButton._playAgain += ToggleModal;
         AboutButton._toggleModal += ToggleModal;
+        LogoutButton._toggleModal += ToggleModal;
     }
     private void OnDisable()
     {
@@ -51,6 +52,7 @@ public class ModalScript : MonoBehaviour
         CloseModal._toggleModal -= ToggleModal;
         PlayGameButton._playAgain -= ToggleModal;
         AboutButton._toggleModal -= ToggleModal;
+        LogoutButton._toggleModal -= ToggleModal;
     }
     /// <summary>
     /// Overload for profil modal
@@ -69,6 +71,7 @@ public class ModalScript : MonoBehaviour
             _yesButton.SetActive(false);
             _noButton.SetActive(false);
             _closeButton.SetActive(true);
+            _logoutButton.SetActive(true);
         }
 
         AnimateModal();
@@ -92,6 +95,7 @@ public class ModalScript : MonoBehaviour
                     _profilePictureHolder.SetActive(false);
                     _textOutput.gameObject.SetActive(true);
                     _finishImage.gameObject.SetActive(true);
+                    _logoutButton.SetActive(false);
                     _finishImage.GetComponent<Image>().sprite = _heart;
                     _textOutput.text = "This game was made by a father, guided by a teacher for their loved children. " +
                         "We love you Nora and Lucas.";
@@ -101,6 +105,7 @@ public class ModalScript : MonoBehaviour
                     _profilePictureHolder.SetActive(true);
                     _textOutput.gameObject.SetActive(false);
                     _finishImage.gameObject.SetActive(false);
+                    _logoutButton.SetActive(true);
                     break;
                 default: break;
             } 
@@ -128,6 +133,7 @@ public class ModalScript : MonoBehaviour
             _yesButton.SetActive(true);
             _noButton.SetActive(true);
             _closeButton.SetActive(false);
+            _logoutButton.SetActive(false);
 
             _textOutput.text = aTextOutput;
             _mathProblem.text = aMathProblem;

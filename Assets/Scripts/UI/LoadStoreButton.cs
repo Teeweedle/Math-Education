@@ -9,6 +9,10 @@ public class LoadStoreButton : MonoBehaviour
     public void OnClick()
     {
         Scene lScene = SceneManager.GetSceneAt(1);
-        LoadScene._instance.LoadSceneTransition(lScene.name, _STORESCENE);
+
+        if(lScene.buildIndex == 1)
+        {
+            LoadScene._instance.LoadSceneTransition(lScene.name, _STORESCENE);
+        }
     }
 }

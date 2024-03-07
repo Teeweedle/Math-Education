@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AboutButton : MonoBehaviour
@@ -12,6 +13,11 @@ public class AboutButton : MonoBehaviour
     public static event ToggleModal _toggleModal;
     public void OnClick()
     {
-        _toggleModal?.Invoke(_button.name);
+        Scene lScene = SceneManager.GetSceneAt(1);
+        //button only works if on the game selection screen
+        if (lScene.buildIndex == 1)
+        {
+            _toggleModal?.Invoke(_button.name);
+        }        
     }
 }
